@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing - Kimbimbi HMS</title>
+    <link rel="stylesheet" href="styles4.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Patient Billing</h2>
+        <form action="billing.php" method="POST">
+            <label for="patient_id">Patient ID:</label>
+            <input type="text" id="patient_id" name="patient_id" required>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <label for="payment_status">Payment Status:</label>
+            <select id="payment_status" name="payment_status" required>
+                <option value="Pending">Pending</option>
+                <option value="Paid">Paid</option>
+            </select>
+
+            <button type="submit">Generate Bill</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration - Kimbimbi HMS</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="login-prompt" id="loginPrompt">
+        <h2>Login Required</h2>
+        <form onsubmit="return validateLogin()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+
+    <div class="registration-form" id="registrationForm" style="display:none;">
+        <h2>Patient Registration</h2>
+        <form action="register.php" method="POST">
+
+            
+                <label for="ID">Patient_No:</label>
+                <input type="text" id="ID" name="ID" required>
+            
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" name="contact" required>
+            
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            
+                <label for="date">Date of Arrival:</label>
+                <input type="date" id="date" name="date" required>
+            
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" required>
+            
+                <label for="diagnosis">Diagnosis:</label>
+                <textarea id="diagnosis" name="diagnosis" required></textarea>
+        
+            
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+    <script src="script1.js"></script>
+</body>
+</html>

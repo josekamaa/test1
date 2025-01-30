@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Records - Kimbimbi HMS</title>
+    <link rel="stylesheet" href="styles5.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Hospital Records</h2>
+        
+        <h3>View Patient Records</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Patient ID</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Age</th>
+                    <th>Department</th>
+                    <th>Diagnosis</th>
+                </tr>
+            </thead>
+            <tbody id="patientTable">
+                <!-- Patient data will be inserted here dynamically -->
+            </tbody>
+        </table>
+
+        <h3>Generate Reports</h3>
+        <form action="reports.php" method="POST">
+            <label for="reportType">Select Report Type:</label>
+            <select id="reportType" name="reportType" required>
+                <option value="patients">Patient Records</option>
+                <option value="appointments">Appointments</option>
+                <option value="billing">Billing</option>
+                <option value="inventory">Inventory</option>
+            </select>
+
+            <button type="submit">Generate Report</button>
+        </form>
+    </div><br>
+
+    <a href='dashboard.html' style='display: inline-block; 
+    padding: 10px 20px; background-color:rgb(20, 172, 196); color: white;
+     text-decoration: none; border-radius: 5px;'>Dashboard</a>
+
+    <script>
+        // Fetch patient data from server
+        fetch('fetch_records.php?type=patients')
+            .then(response => response.json())
+            .then(data => {
+                let tableBody = document.getElementById('patientTable');
+                data.forEach(patient => {
+                    let row = `<tr>
+                        <td>${patient.ID}</td>
+                        <td>${patient.name}</td>
+                        <td>${patient.contact}</td>
+                        <td>${patient.age}</td>
+                        <td>${patient.department}</td>
+                        <td>${patient.diagnosis}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            });
+    </script>
+</body>
+</html>
